@@ -1,1 +1,1 @@
-"# do-an-phat-trien-ung-dung" 
+"Hãy là người sử dụng code đúng nghĩa" 
