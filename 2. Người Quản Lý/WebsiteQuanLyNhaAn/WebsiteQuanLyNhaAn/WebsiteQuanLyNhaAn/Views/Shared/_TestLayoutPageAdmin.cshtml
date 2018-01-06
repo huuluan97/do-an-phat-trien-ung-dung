@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Luan</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&amp;subset=vietnamese" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/das.css" rel="stylesheet" />
+    <link href="~/Content/admin.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        .row{
+            width:100%;
+        }
+        #tieude {
+            background-color: #232526;
+            height: 50px;
+            display: block;
+            float: left;
+            width:80%;
+        }
+        #dangnhap {
+            background-color: #232526;
+            float: right;
+            padding-top: 10px;
+            padding-left: 80px;
+            height: 50px;
+            width: 20%;
+        }
+        #tieude h2 {
+            text-align: center;
+            color: white;
+            font-family: 'Noto Serif', serif;
+            padding-bottom: 50px;
+        }
+        #btnDangNhap {
+            color: black;
+            background-color: #F0F2F0;
+            padding-right: 30px;
+            float:left;
+        }
+        #btnDangNhap:hover {
+            color: #F0F2F0;
+            background-color: #232526;
+        }
+       
+    </style>
+
+
+
+    <meta name="description" content="The description of my page" />
+</head>
+<body style="width: 100%; padding-top: 0;">
+<div class="">
+    <div class="container example5">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar5">
+                        <span class="sr-only">Toggle navigat</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img style="width:130px;height:40px;" src="~/Content/Images/new 2.png" alt="Dispute Bills">Batman Family Company
+                    </a>
+                    
+                </div>
+                <div id="navbar5" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        @{
+                            if (Session["MaNV"] != null)
+                            {
+                                string nameyou = @Session["MaNV"].ToString();
+                                
+                            }
+                        }
+                        <li class="active"><a href="#" >Xin chào @Session["MaNV"].ToString()</a></li>
+                        <li><a href="@Url.Action("Login","LoginAdmin")">Đăng Xuất <i class="fa fa-sign-out"></i></a></li>
+
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
+        </nav>
+
+    </div>
+
+</div>
+<style>
+    .example5 .navbar-brand {
+        display: flex;
+        align-items: center;
+    }
+    .example5 .navbar-brand>img {
+        padding: 7px 14px;
+    }
+</style>
+<div class="" style="width: 100%">
+    <div class="jumbotron">
+        <div class="row">
+            <div id="" class="col-md-10" style="text-align: center;">
+                <h1> ADMINISTRATOR</h1>
+            </div>
+            <div id="" class="col-md-2">
+
+
+            </div>
+            <div class="col-md-12" style="text-align: left;">
+
+                @*<span class="label label-info">Xin chào @nameyou</span>*@
+                @*<a href="@Url.Action("Login", "LoginAdmin")" class="btn btn-default" id="btnDangNhap"> <i class="fa fa-sign-out" aria-hidden="true"></i> Đăng Xuất</a>*@
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top: -30px;">
+    <div id="content">
+        <div class="row">
+            <div class="col-md-2" style="">
+                
+                    
+               
+                    <div class="thanh-menu left " id="Thanh-Menu" style="height: auto">
+                        <div>
+                            <button id="btnMenu" class="button-menu" onclick="ThuMenu();">
+                                <span class="glyphicon glyphicon-align-justify"></span>
+                            </button>
+                        </div>
+                        <br/>
+                        <br/>
+                        <ul class="dsMuc bg-defoult">
+                            <li>
+                                <a href="#danhmuc-NV" data-toggle="collapse" data-target="#nhanvien" class="collapsed active">
+                                    <span class="glyphicon glyphicon-briefcase"></span> <span class="nav-label">Nhân Viên</span>
+                                </a>
+                                <ul class="menu-phu collapse" id="nhanvien">
+                                    <li>
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+
+                                        @Html.ActionLink("Quản Lý Tài Khoản", "DanhSachNhanVien", "TaiKhoan")
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#danhmuc-Mon" data-toggle="collapse" data-target="#monan" class="collapsed active"> <span class="glyphicon glyphicon-cutlery"></span> <span class="nav-label">Món Ăn</span></a>
+                                <ul class="menu-phu collapse" id="monan">
+                                    <li>
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        @Html.ActionLink("Lên Thực Đơn", "TEST2", "ThucDons")
+                                    </li>
+                                    <li><span class="glyphicon glyphicon-chevron-right"></span>@Html.ActionLink("Thêm Món Ăn", "Index", "MonAn")</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#danhmuc-Mon" data-toggle="collapse" data-target="#thongke" class="collapsed active"><span class="glyphicon glyphicon-signal"></span> <span class="nav-label">Thống Kê</span></a>
+                                <ul class="menu-phu collapse" id="thongke">
+                                    <li>
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+
+                                        @Html.ActionLink("Phí Ăn Hàng Tháng", "Index", "ThongKe")
+                                    </li>
+                                    <li>
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        @Html.ActionLink("Phí Mua Nguyên Liệu", "TEST2", "NguyenLieu")
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10" style="height: auto;">
+                    <div id="thong-tin">
+                        <div class="tab-content" style="background-color:rgb(206, 255, 255)">
+
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+<script>
+    $(document).ready(function() {
+        $('#btnMenu').click(function() {
+            $('.thanh-menu').toggleClass('gop-menu');
+        });
+    });
+</script>
+<script>
+    function ThuMenu() {
+        document.getElementById('thong-tin').classList.toggle('active');
+    }
+</script>
+<script src="~/Content/Script/notify.min.js"></script>
+<script src="~/Content/Script/Script1.js"></script>
+<script>
+    $("#employeeTable_previous").text("Quay lại");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿@model WebsiteQuanLyNhaAn.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_TestLayoutPageAdmin.cshtml";
+}
+
+<br />
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+                <div class="circle-tile-content red">
+                    <div class="circle-tile-description text-faded"> Tài Khoản Đã Đăng Kí </div>
+                    <div class="circle-tile-number text-faded ">@ViewBag.Count</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#">
+                    <div class="circle-tile-heading dark-blue">
+                        <i class="fa  fa-money
+ fa-fw fa-3x"></i>
+                    </div>
+                </a>
+                <div class="circle-tile-content dark-blue">
+                    <div class="circle-tile-description text-faded">Tổng Số Tiền</div>
+                    <div class="circle-tile-number text-faded ">@ViewBag.Total VNĐ</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#">
+                    <div class="circle-tile-heading blue-sea">
+                        <i class="fa   fa-comments-o fa-fw fa-3x"></i>
+                    </div>
+                </a>
+                <div class="circle-tile-content blue-sea">
+                    <div class="circle-tile-description text-faded">Phản Hồi Mới</div>
+                    <div class="circle-tile-number text-faded ">24</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#">
+                    <div class="circle-tile-heading count-food">
+                        <i class="fa fa-cutlery fa-fw fa-3x"></i>
+                    </div>
+                </a>
+                <div class="circle-tile-content count-food">
+                    <div class="circle-tile-description text-faded">Tổng Số Món Ăn</div>
+                    <div class="circle-tile-number text-faded ">@ViewBag.Food</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+<h3>Bạn có muốn xóa Tài Khoản này?</h3>
+<div>
+    <h4>Tài Khoản @Html.DisplayFor(model => model.MaNV)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            <a href="@Url.Action("Index","TaiKhoan")" style="text-decoration: none;">Quay Lại Danh Sách Tài Khoản</a>
+        </div>
+    }
+</div>
+

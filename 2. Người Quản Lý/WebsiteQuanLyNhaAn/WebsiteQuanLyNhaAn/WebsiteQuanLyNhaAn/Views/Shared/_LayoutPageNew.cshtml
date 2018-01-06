@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Neuton" rel="stylesheet">
+<meta name="viewport" content="width=device-width"/>
+<title>@ViewBag.Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,400,400italic,300,300italic,700,700italic,900' rel='stylesheet' type='text/css'>
+<link href="~/Content/full-slider.css" rel="stylesheet"/>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
+<link href="~/Content/style.css" rel="stylesheet"/>
+<link href="~/Content/swipebox.css" rel="stylesheet"/>
+<link href="~/Content/imagehover.min.css" rel="stylesheet"/>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet"/>
+@Scripts.Render("~/bundles/modernizr")
+@Styles.Render("~/Content/css")
+<meta charset="utf-8"/>
+<style>
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    #myBtn:hover {
+        background-color: #555;
+    }
+</style>
+<style>
+    .my-carousel {
+    }
+
+    .my-nav {
+    }
+
+    .scrollToTop {
+        width: 45px;
+        height: 45px;
+        padding: 5px;
+        text-align: center;
+        opacity: 0.8;
+        text-decoration: none;
+        position: fixed;
+        bottom: 125px;
+        right: 40px;
+        display: none;
+        background-image: url('../../Content/Images/Logo/rsz_icons8-scroll_up-64.png');
+    }
+
+    .scrollToTop:hover {
+        text-decoration: none;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 250) {
+                $('.scrollToTop').fadeIn();
+            } else {
+                $('.scrollToTop').fadeOut();
+            }
+        });
+
+        $('.scrollToTop').click(function() {
+            $('html,body').animate({ scrollTop: 0 }, 800);
+            return false;
+        })
+    });
+</script>
+<style>
+    .hr-primary {
+        background-image: -webkit-linear-gradient(left, rgba(210, 105, 30, .8), rgba(210, 105, 30, .8), rgba(210, 105, 30, .8));
+    }
+
+    hr {
+        height: 4px;
+        margin-left: 15px;
+        margin-bottom: -3px;
+    }
+
+    .loginmodal-container {
+        padding: 30px;
+        max-width: 350px;
+        width: 100% !important;
+        background-color: #F7F7F7;
+        margin: 0 auto;
+        border-radius: 2px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        font-family: roboto;
+    }
+
+    .loginmodal-container h1 {
+        text-align: center;
+        font-size: 1.8em;
+        font-family: roboto;
+    }
+
+    .loginmodal-container input[type=submit] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    .loginmodal-container input[type=text], input[type=password] {
+        height: 44px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        border-top: 1px solid #c0c0c0;
+        /* border-radius: 2px; */
+        padding: 0 8px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+        border: 1px solid #b9b9b9;
+        border-top: 1px solid #a0a0a0;
+        -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .loginmodal {
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Arial', sans-serif;
+        font-weight: 700;
+        height: 36px;
+        padding: 0 8px;
+        /* border-radius: 3px; */
+        /* -webkit-user-select: none;
+        user-select: none; */
+    }
+
+    .loginmodal-submit {
+        /* border: 1px solid #3079ed; */
+        border: 0px;
+        color: #fff;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        background-color: #4d90fe;
+        padding: 17px 0px;
+        font-family: roboto;
+        font-size: 14px;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+    }
+
+    .loginmodal-submit:hover {
+        /* border: 1px solid #2f5bb7; */
+        border: 0px;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+        background-color: #357ae8;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+    }
+
+    .loginmodal-container a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 400;
+        text-align: center;
+        display: inline-block;
+        opacity: 0.6;
+        transition: opacity ease 0.5s;
+    }
+
+    .login-help {
+        font-size: 12px;
+    }
+
+    .a a {
+        text-decoration: none;
+    }
+    .f-t-e-title {
+        text-transform: uppercase;
+        font-family: 'Neuton', serif;
+        color: #830307;
+        padding-bottom: 5px;
+       
+    }
+
+</style>
+<style>
+
+    </style>
+<script>
+    function forgotPass() {
+        alert("Vui lòng lên phòng Quản Lý để xin cấp lại mật khẩu!!!");
+    }
+</script>
+</head>
+<body>
+
+    <div>
+        <div class="header-model-1 navbar-fixed-top ">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="header-logo">
+                            <a href="#">
+                                <img src="~/Content/Images/Logo/logoIUH.jpg" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="menu">
+                            <ul>
+                                <li class="active">
+                                    <a href="@Url.Action("TrangChu","TrangChu")" style="text-decoration:none;"> TRANG CHỦ</a>
+
+                                </li>
+                                <li>
+                                    <a style="text-decoration: none;">NGƯỜI LAO ĐỘNG</a>
+                                    <ul>
+                                        <li><a href="#" style="text-decoration: none;">ĐẶT BỮA ĂN</a></li>
+                                        <li><a href="#" style="text-decoration: none;">HỦY BỮA ĂN</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" data-toggle="modal" data-target="#contact-modal" style="text-decoration: none;">LIÊN HỆ</a></li>
+                                <li><a href="@Url.Action("Login","UserLogin")" style="text-decoration:none;">ĐĂNG NHẬP</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Đăng nhập Form-->
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>ĐĂNG NHẬP TÀI KHOẢN</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="Mã Nhân Viên">
+                        <input type="password" name="pass" placeholder="Mật Khẩu">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Đăng Nhập">
+                    </form>
+
+                    <div class="login-help">
+                        <a href="#" onclick="return forgotPass();">Quên mật khẩu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Button Scroll top-->
+        <button class="scrollToTop" title="Go to head web">TOP</button>
+        <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog" style="width:1000px;">
+                <div class="loginmodal-container ">
+                    <h1>Liên Hệ</h1>
+                    <form >
+                        <div style="height:90px; padding: 10px; background-color: #E3D9DF;">
+                            <span>Tên :</span><br />
+                            <input type="text" style="width: 260px;" placeholder="Name" />
+                        </div>
+                        <div style="height:90px; padding: 10px; background-color: #E3D9DF;">
+                            <span>Số Điện Thoại :</span><br />
+                            <input type="text" style="width: 260px;" placeholder="Phone" />
+                        </div>
+                        <div style="height:220px; padding: 10px; background-color: #E3D9DF;">
+                            <span>Tin nhắn :</span><br />
+                            <textarea placeholder="Message" cols="34" rows="5"></textarea>
+                            <br />
+                            <br />
+                            <input type="submit" id="send-contact" class="login loginmodal-submit" value="Gửi Tin Nhắn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script>
+    
+</script>
+    <div>
+        @RenderBody()
+    </div>
+    <hr class="hr-primary" />
+    <div class="container container-fluid" style="margin-top: 5px;">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="header-logo">
+                    <a href="#">
+                        <img src="https://dhth7lt.files.wordpress.com/2012/10/mau-logo-dhcntphcm.jpg" />
+                    </a>
+                </div>
+                <h4>LIÊN HỆ</h4>
+                <span> ĐẠI HỌC CÔNG NGHIỆP TP. HCM</span><br />
+                <span>Địa chỉ: Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, Thành phố Hồ Chí Minh</span><br />
+                <span>Điện thoại: <span style="text-decoration:none;color:blue;">0283.8940 390</span></span><br />
+                <span>Fax: <span href="#" style="text-decoration:none;color:blue;">0283.9940 954</span></span><br />
+
+
+            </div>
+
+
+            <div class="col-md-3">
+                <h4>Vị trí của chúng tôi</h4>
+                <div id="map" style="width: 250px; height: 250px;"></div>
+                <script>
+                    // This example requires the Places library. Include the libraries=places
+                    // parameter when you first load the API. For example:
+                    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+                    function initMap() {
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            center: { lat: 10.8217672, lng: 106.6869828 },
+                            zoom: 17
+                        });
+
+                        var infowindow = new google.maps.InfoWindow();
+                        var service = new google.maps.places.PlacesService(map);
+
+                        service.getDetails({
+                            placeId: 'ChIJsaQVUeUodTER9dqICr6LNk8'
+                        }, function(place, status) {
+                            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                                var marker = new google.maps.Marker({
+                                    map: map,
+                                    position: place.geometry.location
+                                });
+                                google.maps.event.addListener(marker, 'click', function() {
+                                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                                        'Place ID: ' + place.place_id + '<br>' +
+                                        place.formatted_address + '</div>');
+                                    infowindow.open(map, this);
+                                });
+                            }
+                        });
+                    }
+                </script>
+                @*<script>
+                        function myMap() {
+                            var mapProp = {
+                                center: new google.maps.LatLng(10.8217672, 106.6869828),
+                                zoom: 18,
+                            };
+                            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                        }
+                        //mykey : AIzaSyBMI-mXu4H5XQftOLKuIGP5FJCQfmry80o
+                    </script>*@
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMI-mXu4H5XQftOLKuIGP5FJCQfmry80o&libraries=places&callback=initMap" async defer></script>
+
+            </div>
+           
+            <div class="col-md-3">
+                <div id="style-contact">
+                    <h4>Theo Dõi Chúng Tôi Trên</h4>
+                    <ul class="adress" style="">
+
+
+                        <li>
+                            <a href="#"><i class="fa fa-3x fa-facebook-square" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-3x fa-twitter-square" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <i class="fa fa-3x fa-youtube-square" aria-hidden="true"></i>
+                        </li>
+                        <li><i class="fa fa-3x fa-linkedin-square" aria-hidden="true"></i></li>
+                        <li><a href="#"><i class="fa fa-3x fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div id="style-contact">
+                    <h4 class="f-t-e-title">Bản Tin Công Ty</h4>
+                    <ul class="adress">
+                        <li>
+                            <span style="color:red;">Tin Vắn: </span><a href="#" style="text-decoration:none;">Công ty tăng 30% lương</a>
+                        </li>
+                        <li>
+                            <span style="color:red;">Tin Thời Sự: </span><a href="https://news.zing.vn/am-anh-ket-xe-o-ham-vuot-song-sai-gon-can-mo-rong-lan-xe-2-banh-post803428.html" style="text-decoration:none;" target="_blank">Ám ảnh kẹt hầm Sài Gòn</a>
+                        </li>
+                        <li>
+                            <span style="color:red;">Tin Thể Thao: </span><a href="https://news.zing.vn/am-anh-ket-xe-o-ham-vuot-song-sai-gon-can-mo-rong-lan-xe-2-banh-post803428.html" style="text-decoration:none;" target="_blank">Hữu Luận giúp Bóng Đã Việt Nam vô địch thế giới!</a>
+                        </li>
+                        <li>
+                            <span style="color:red;">Tin Công Nghệ: </span><a href="https://news.zing.vn/loan-gia-iphone-8-8-plus-tai-viet-nam-post802990.html" style="text-decoration:none;" target="_blank">Loạn giá Nokia 1280 tại Việt Nam</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <style>
+                ul li {
+                    display: inline-block;
+                    margin:4px;
+                }
+            </style>
+            <div class="col-md-3" style="margin-top: 3px;">
+                <h4 style="color: black;">Ảnh Nhân Viên Nhà Ăn</h4>
+                <img src="~/Photos/12987188_169463426780557_3310416795613959355_n.jpg" style="width:250px;height:250px;" data-toggle="tooltip" title="Đại học TH11D!" />
+                <script>
+                    $(document).ready(function(){
+                        $('[data-toggle="tooltip"]').tooltip();   
+                    });
+                </script>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/Script/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Content/Script/jquery-ui.min.js"></script>
+    <script src="~/Content/Script/jquery.swipebox.min.js"></script>
+    <script src="~/Content/Script/masonry.pkgd.js"></script>
+    <script src="~/Content/Script/modernizr.custom.63321.js"></script>
+    <script src="~/Content/Script/options.js"></script>
+    <script src="~/Content/Script/plugins.js"></script>
+    <script src="~/Content/Script/Scripts.js"></script>
+    <script src="~/Content/Script/placeholder.js"></script>
+    <script src="~/Content/popper/popper.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

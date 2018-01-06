@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Luan</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&amp;subset=vietnamese" rel="stylesheet">
+
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/Content/admin.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        #tieude {
+            background-color: #232526;
+            height: 50px;
+            display: block;
+            float: left;
+            width: 80%;
+        }
+
+        #dangnhap {
+            background-color: #232526;
+            float: right;
+            padding-top: 10px;
+            padding-left: 80px;
+            height: 50px;
+            width: 20%;
+        }
+
+        #tieude h2 {
+            text-align: center;
+            color: white;
+            font-family: 'Noto Serif', serif;
+            padding-bottom: 50px;
+        }
+
+        #btnDangNhap {
+            color: black;
+            background-color: #F0F2F0;
+            padding-right: 30px;
+            float: left;
+        }
+
+            #btnDangNhap:hover {
+                color: #F0F2F0;
+                background-color: #232526;
+            }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('#btn_menu').click(function() {
+                $('.thanh-menu').toggleClass('gop-menu');
+            });
+        });
+
+        function ThuMenu() {
+            document.getElementById('Thong-Tin').classList.toggle('active');
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="row">
+
+    </div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Content/Script/notify.min.js"></script>
+    <script src="~/Content/Script/Script1.js"></script>
+</body>
+</html>

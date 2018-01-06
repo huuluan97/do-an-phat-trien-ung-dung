@@ -1,0 +1,96 @@
+﻿@model WebsiteQuanLyNhaAn.Models.MonAn
+@{
+    ViewBag.Title = "AddOrEdit";
+    Layout = null;
+}
+
+<style>
+    /*label {
+        
+    }*/
+    #lblView {
+        font-family: 'Merriweather', serif;
+        font-size:17px;
+        color: red;
+    }
+    #drmLoai {
+       font-size:16px;
+    }
+</style>
+
+@using (Html.BeginForm("AddOrEdit", "MonAn", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_restUrl = Url.Action("AddorEdit", "MonAn", new { id = 0 }) }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MaMonAn)
+            @Html.HiddenFor(model => model.Images)
+            <div class="col-md-8">
+                <div class="form-group" style="display: none;">
+                    @Html.LabelFor(model => model.MaMonAn, htmlAttributes: new { @class = "control-label col-md-2" })
+           
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MaMonAn, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.MaMonAn, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TenMonAn, htmlAttributes: new { @class = "control-label col-md-2", @id="lblView" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TenMonAn, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TenMonAn, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LoaiMonAn, htmlAttributes: new { @class = "control-label col-md-2", @id= "lblView" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.LoaiMonAn, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.DropDownListFor(model => model.LoaiMonAn, new SelectList(new[] { "Món Chiên", "Món Canh","Món Kho","Món Xào" }), htmlAttributes: new {id="drmLoai"})
+                        @Html.ValidationMessageFor(model => model.LoaiMonAn, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2", @id= "lblView" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Đồng ý" class="btn btn-default" />
+                        @if (Model.MaMonAn != 0)
+                        {
+                            <a class="btn btn-success" onclick="refreshAddNewTab('@Url.Action("AddOrEdit","MonAn",new{id=0})',false)"><i class="fa fa-plus"></i> Thêm Mới</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Images, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <img src="@Url.Content(Model.Images)" style="margin:10px" height="200" width="200" id="imagePreview" />
+                        <input type="file" name="ImageUpload" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imagePreview'))" />
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+}
+
+
+
+
+

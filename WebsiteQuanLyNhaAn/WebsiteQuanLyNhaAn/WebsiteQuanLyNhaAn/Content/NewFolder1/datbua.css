@@ -1,0 +1,414 @@
+﻿
+.menu-theo-tuan {
+    height: auto;
+    margin: 0px auto;
+    /*float:left;*/
+}
+
+.dsmonan {
+    height: auto;
+    float: left;
+}
+
+.content ul.tab {
+    list-style: none;
+    margin: 20px 0 25px;
+    padding: 0;
+    overflow: hidden;
+    height: 50px;
+}
+
+.content ul.tab li {
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    padding: 3px 0 3px 0px;
+    height: 50px;
+}
+
+.content ul.tab li a {
+    display: block;
+    padding: 6px 0;
+    font-size: 18px;
+    font-weight: 200;
+    color: #333;
+    border-bottom: 1px solid #ebebeb;
+    text-decoration: none;
+    height: 50px;
+}
+
+.content ul.tab li.active a {
+    text-decoration: none;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+    border-color: #ebebeb;
+    color: #b11116;
+    font-weight: 700;
+    text-decoration: none;
+    height: 50px;
+}
+
+.content ul.tab {
+    height: auto;
+}
+
+.content .menu-theo-tuan .dsmonan #ThuNgay ul {
+    list-style: none;
+    padding-left: 10px;
+    top: 15px;
+}
+
+.ngay-len-mon {
+    float: right;
+}
+
+.content .menu-theo-tuan .dsmonan #ThuNgay li {
+    margin-bottom: 5px;
+    color: #48b1bf;
+    box-shadow: 5px 5px 5px;
+    -moz-box-shadow: 5px 5px 5px;
+    -webkit-box-shadow: 5px 5px 5px;
+    -o-box-shadow: 5px 5px 5px;
+    -ms-box-shadow: 5px 5px 5px;
+    width: 260px;
+}
+
+.content .menu-theo-tuan .dsmonan #ThuNgay li a {
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.content .menu-theo-tuan .dsmonan #ThuNgay li a:hover {
+    color: white;
+    background: #0082c8;
+}
+
+.cart main_cart {
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#hinhanh {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    float: left;
+}
+
+.GiaVaLoai {
+    text-align: left;
+}
+
+.menu-mon h4 {
+    /*font-style:oblique;*/
+    font-family: 'Noto Serif', serif;
+    background-color: #0082c8;
+    color: white;
+    padding-left: 30px;
+    border-radius: 0px 30px 0px 15px;
+    font-size: 30px;
+}
+
+.GiaVaLoai .tenmonan {
+    font-family: 'Lobster', cursive;
+}
+
+.GiaVaLoai .dongia {
+    padding-left: 2px;
+}
+
+.GiaVaLoai .loaimon {
+    padding-left: 2px;
+}
+
+.dsMon {
+    padding-left: 50px;
+    margin: 10px 0px 10px 0px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+    .dsMon .GiaVaLoai {
+        padding-left: 150px;
+    }
+
+.tenmonan {
+    font-size: 20px;
+}
+
+.col-md-12 h4 {
+    font-family: 'Noto Serif', serif;
+}
+/*.subtract-mon{
+    padding-left:100px;
+}*/
+.BangTam {
+    border: 1px solid gray;
+}
+
+.gio-hang {
+    width: 270px;
+    float: left;
+    border: 1px solid #200122;
+    border-radius: 5px;
+}
+
+    .gio-hang h4 {
+        margin: 0;
+        padding: 10px;
+        font-size: 14px;
+        background: #870000;
+        color: #fff;
+        text-align: center;
+    }
+
+.dat-bua {
+    border-top: 1px solid gray;
+}
+
+.btnDatBua {
+    background-color: #870000;
+    border-radius: 2px;
+    color: #fff;
+}
+
+#tong-tien {
+    float: left;
+}
+
+#so-tien {
+    float: right;
+}
+
+.clr {
+    clear: both;
+    height: 15px;
+}
+
+.mon-da-chon {
+    max-height: 500px;
+    overflow: auto;
+}
+
+#ThuNgay.affix-top {
+    position: static;
+}
+
+#ThuNgay.affix {
+    position: fixed;
+    top: 20px;
+    width: 260px;
+}
+
+#giohang.affix-top {
+    position: static;
+}
+
+#giohang.affix {
+    position: fixed;
+    top: 10px;
+    width: 270px;
+}
+
+#menu-blur, #dsOrder {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgb(255, 255, 255) 100%), url("../Content/Images/Ảnh back/mon-ngon-cho-bua-toi-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 0;
+}
+
+/*#menu-blur, #dsOrder{
+     z-index: 10000;
+}*/
+#Add {
+    color: #b31217;
+    background-color: white;
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    /*padding:2px;*/
+    display: block;
+    top: 0;
+    bottom: 1px;
+}
+
+.add-mon-an {
+    height: 25px;
+    width: 25px;
+    border: 1px solid #6f0000;
+    display: inline-block;
+    line-height: 25px;
+    border-radius: 50%;
+    padding-left: 0px;
+    float: right;
+}
+
+#Add:hover {
+    color: white;
+    background-color: #b31217;
+}
+
+.add-mon-an:hover {
+    color: white;
+    background-color: #b31217;
+}
+
+#nhaptimkiem {
+    float: left;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-right: 10px;
+}
+
+#timkiem {
+    color: #302b63;
+}
+
+#btntimkiem {
+    height: 20px;
+    width: 23px;
+    float: left;
+    padding: 5px;
+    color: white;
+}
+
+.gio-hang .mon-da-chon ul {
+    list-style-type: none;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.countdownTimer {
+    font-size: 20px;
+}
+
+.minus-mon-an {
+    height: 20px;
+    width: 20px;
+    border: 1px solid #6f0000;
+    display: inline-block;
+    line-height: 25px;
+    border-radius: 50%;
+    padding-right: 5px;
+    float: right;
+}
+
+    .minus-mon-an:hover {
+        color: white;
+        background-color: #b31217;
+    }
+
+#dsmon-da-chon {
+    background-color: white;
+}
+
+#Minus {
+    color: #b31217;
+    background-color: white;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    /*padding:2px;*/
+    display: block;
+    top: 0;
+    bottom: 1px;
+}
+
+    #Minus:hover {
+        color: white;
+        background-color: #b31217;
+    }
+
+.MonDaChon {
+    height: 45px;
+    padding-left:5px;
+    margin: 10px;
+    border-bottom: 1px dashed gray;
+}
+
+.vohieuAdd {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.DatBua {
+    background-color: #b31217;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #cc5333;
+    opacity: 0.7;
+}
+
+    .DatBua:hover {
+        opacity: 1;
+        background-color: #b31217;
+        color: white;
+    }
+
+#SoLuong {
+    top: 0px;
+}
+
+.tenmondcchon {
+    width: 20%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.loaimondcchon {
+    width: 15%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.dongiamondcchon {
+    width: 15%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.soluongmondcchon {
+    width: 10%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.thanhtienmonan {
+    width: 15%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.ngayandcchon {
+    width: 15%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.tab-Dat-bua .col-md-12 {
+    border: 1px solid black;
+}
+
+#btnDatBua {
+    float: right;
+    padding-right: 10px;
+    margin: 20px;
+}
+
+.tab-Dat-bua .col-md-12 {
+    background-image: url('Images/Ảnh back/themetable.jpg');
+}
+
+.tab-Dat-bua .col-md-12  h4 {
+    color: #ebebeb;
+}

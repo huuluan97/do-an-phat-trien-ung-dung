@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BEF1A1AE-2E82-4A6E-B07B-730EB0F05C47}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebsiteQuanLyNhaAn</RootNamespace>
+    <AssemblyName>WebsiteQuanLyNhaAn</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=17.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.17.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.4.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.4.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.4.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginAdminController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MonAnController.cs" />
+    <Compile Include="Controllers\NguyenLieuController.cs" />
+    <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\ThongKeController.cs" />
+    <Compile Include="Controllers\ThongKeNguyenLieuController.cs" />
+    <Compile Include="Controllers\ThongKePhiAnController.cs" />
+    <Compile Include="Controllers\ThucDonsController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
+    <Compile Include="Controllers\UserChonMonController.cs" />
+    <Compile Include="Controllers\UserLoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalClass.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BuaAn.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChiTietBuaAn.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChiTietNguyenLieu.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MonAn.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NguyenLieu.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhaAn.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhaAn.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhaAn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhaAn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhaAn.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhanVien.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaiKhoan.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThanhToan.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThanhToanNguyenLieu.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ThucDon.cs">
+      <DependentUpon>NhaAn.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\admin_test.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\das.css" />
+    <Content Include="Content\datatable.js" />
+    <Content Include="Content\datbua.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\full-slider.css" />
+    <Content Include="Content\imagehover.min.css" />
+    <Content Include="Content\Images\Ab6maL0pq9KKT0izRsNamOMVGLQ.jpg" />
+    <Content Include="Content\Images\Silicon-Valley-real-estate-The-Registry %281%29.jpg" />
+    <Content Include="Content\Images\Silicon-Valley-real-estate-The-Registry.jpg" />
+    <Content Include="Content\Images\silicon-valley.jpg" />
+    <Content Include="Content\Images\SilVal_HEADER_new6-1.jpg" />
+    <Content Include="Content\LenThucDon.css" />
+    <Content Include="Content\NewFolder1\datbua.css" />
+    <Content Include="Content\notify.css" />
+    <Content Include="Content\notify.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\semantic.css" />
+    <Content Include="Content\semantic.min.css" />
+    <Content Include="Content\semantic.site.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\swipebox.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Models\NhaAn.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NhaAn.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\NhaAn.edmx.diagram">
+      <DependentUpon>NhaAn.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Models\NhaAn.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NhaAn.edmx</DependentUpon>
+      <LastGenOutput>NhaAn.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\NhaAn.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NhaAn.edmx</DependentUpon>
+      <LastGenOutput>NhaAn.cs</LastGenOutput>
+    </Content>
+    <Content Include="Photos\12987188_169463426780557_3310416795613959355_n.jpg" />
+    <Content Include="Photos\Hospital-food-background.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-notify.js" />
+    <Content Include="Scripts\jquery-notify.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\notify.js" />
+    <Content Include="Scripts\readmore.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scriptBill.js" />
+    <Content Include="Scripts\Scripts.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="semantic\less\fonts\icons.svg" />
+    <Content Include="semantic\less\images\loader-large-inverted.gif" />
+    <Content Include="semantic\less\images\loader-large.gif" />
+    <Content Include="semantic\less\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\less\images\loader-medium.gif" />
+    <Content Include="semantic\less\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\less\images\loader-mini.gif" />
+    <Content Include="semantic\less\images\loader-small-inverted.gif" />
+    <Content Include="semantic\less\images\loader-small.gif" />
+    <Content Include="semantic\less\modules\accordion.js" />
+    <Content Include="semantic\less\modules\behavior\api.js" />
+    <Content Include="semantic\less\modules\behavior\colorize.js" />
+    <Content Include="semantic\less\modules\behavior\form.js" />
+    <Content Include="semantic\less\modules\behavior\state.js" />
+    <Content Include="semantic\less\modules\carousel.js" />
+    <Content Include="semantic\less\modules\chatroom.js" />
+    <Content Include="semantic\less\modules\checkbox.js" />
+    <Content Include="semantic\less\modules\dimmer.js" />
+    <Content Include="semantic\less\modules\dropdown.js" />
+    <Content Include="semantic\less\modules\modal.js" />
+    <Content Include="semantic\less\modules\nag.js" />
+    <Content Include="semantic\less\modules\popup.js" />
+    <Content Include="semantic\less\modules\rating.js" />
+    <Content Include="semantic\less\modules\search.js" />
+    <Content Include="semantic\less\modules\shape.js" />
+    <Content Include="semantic\less\modules\sidebar.js" />
+    <Content Include="semantic\less\modules\tab.js" />
+    <Content Include="semantic\less\modules\transition.js" />
+    <Content Include="semantic\less\modules\video.js" />
+    <Content Include="semantic\minified\collections\breadcrumb.min.css" />
+    <Content Include="semantic\minified\collections\form.min.css" />
+    <Content Include="semantic\minified\collections\grid.min.css" />
+    <Content Include="semantic\minified\collections\menu.min.css" />
+    <Content Include="semantic\minified\collections\message.min.css" />
+    <Content Include="semantic\minified\collections\table.min.css" />
+    <Content Include="semantic\minified\elements\button.min.css" />
+    <Content Include="semantic\minified\elements\divider.min.css" />
+    <Content Include="semantic\minified\elements\header.min.css" />
+    <Content Include="semantic\minified\elements\icon.min.css" />
+    <Content Include="semantic\minified\elements\image.min.css" />
+    <Content Include="semantic\minified\elements\input.min.css" />
+    <Content Include="semantic\minified\elements\label.min.css" />
+    <Content Include="semantic\minified\elements\loader.min.css" />
+    <Content Include="semantic\minified\elements\progress.min.css" />
+    <Content Include="semantic\minified\elements\segment.min.css" />
+    <Content Include="semantic\minified\elements\step.min.css" />
+    <Content Include="semantic\minified\fonts\icons.svg" />
+    <Content Include="semantic\minified\images\loader-large-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-large.gif" />
+    <Content Include="semantic\minified\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-medium.gif" />
+    <Content Include="semantic\minified\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-mini.gif" />
+    <Content Include="semantic\minified\images\loader-small-inverted.gif" />
+    <Content Include="semantic\minified\images\loader-small.gif" />
+    <Content Include="semantic\minified\modules\accordion.js" />
+    <Content Include="semantic\minified\modules\accordion.min.css" />
+    <Content Include="semantic\minified\modules\accordion.min.js" />
+    <Content Include="semantic\minified\modules\behavior\api.js" />
+    <Content Include="semantic\minified\modules\behavior\api.min.js" />
+    <Content Include="semantic\minified\modules\behavior\colorize.js" />
+    <Content Include="semantic\minified\modules\behavior\colorize.min.js" />
+    <Content Include="semantic\minified\modules\behavior\form.js" />
+    <Content Include="semantic\minified\modules\behavior\form.min.js" />
+    <Content Include="semantic\minified\modules\behavior\state.js" />
+    <Content Include="semantic\minified\modules\behavior\state.min.js" />
+    <Content Include="semantic\minified\modules\carousel.js" />
+    <Content Include="semantic\minified\modules\carousel.min.css" />
+    <Content Include="semantic\minified\modules\carousel.min.js" />
+    <Content Include="semantic\minified\modules\chatroom.js" />
+    <Content Include="semantic\minified\modules\chatroom.min.css" />
+    <Content Include="semantic\minified\modules\chatroom.min.js" />
+    <Content Include="semantic\minified\modules\checkbox.js" />
+    <Content Include="semantic\minified\modules\checkbox.min.css" />
+    <Content Include="semantic\minified\modules\checkbox.min.js" />
+    <Content Include="semantic\minified\modules\dimmer.js" />
+    <Content Include="semantic\minified\modules\dimmer.min.css" />
+    <Content Include="semantic\minified\modules\dimmer.min.js" />
+    <Content Include="semantic\minified\modules\dropdown.js" />
+    <Content Include="semantic\minified\modules\dropdown.min.css" />
+    <Content Include="semantic\minified\modules\dropdown.min.js" />
+    <Content Include="semantic\minified\modules\extra.min.css" />
+    <Content Include="semantic\minified\modules\modal.js" />
+    <Content Include="semantic\minified\modules\modal.min.css" />
+    <Content Include="semantic\minified\modules\modal.min.js" />
+    <Content Include="semantic\minified\modules\nag.js" />
+    <Content Include="semantic\minified\modules\nag.min.css" />
+    <Content Include="semantic\minified\modules\nag.min.js" />
+    <Content Include="semantic\minified\modules\popup.js" />
+    <Content Include="semantic\minified\modules\popup.min.css" />
+    <Content Include="semantic\minified\modules\popup.min.js" />
+    <Content Include="semantic\minified\modules\rating.js" />
+    <Content Include="semantic\minified\modules\rating.min.css" />
+    <Content Include="semantic\minified\modules\rating.min.js" />
+    <Content Include="semantic\minified\modules\reveal.min.css" />
+    <Content Include="semantic\minified\modules\search.js" />
+    <Content Include="semantic\minified\modules\search.min.css" />
+    <Content Include="semantic\minified\modules\search.min.js" />
+    <Content Include="semantic\minified\modules\shape.js" />
+    <Content Include="semantic\minified\modules\shape.min.css" />
+    <Content Include="semantic\minified\modules\shape.min.js" />
+    <Content Include="semantic\minified\modules\sidebar.js" />
+    <Content Include="semantic\minified\modules\sidebar.min.css" />
+    <Content Include="semantic\minified\modules\sidebar.min.js" />
+    <Content Include="semantic\minified\modules\tab.js" />
+    <Content Include="semantic\minified\modules\tab.min.css" />
+    <Content Include="semantic\minified\modules\tab.min.js" />
+    <Content Include="semantic\minified\modules\transition.js" />
+    <Content Include="semantic\minified\modules\transition.min.css" />
+    <Content Include="semantic\minified\modules\transition.min.js" />
+    <Content Include="semantic\minified\modules\video.js" />
+    <Content Include="semantic\minified\modules\video.min.css" />
+    <Content Include="semantic\minified\modules\video.min.js" />
+    <Content Include="semantic\minified\views\comment.min.css" />
+    <Content Include="semantic\minified\views\feed.min.css" />
+    <Content Include="semantic\minified\views\item.min.css" />
+    <Content Include="semantic\minified\views\list.min.css" />
+    <Content Include="semantic\minified\views\sitemap.min.css" />
+    <Content Include="semantic\minified\views\statistic.min.css" />
+    <Content Include="semantic\packaged\css\semantic.min.css" />
+    <Content Include="semantic\packaged\fonts\icons.svg" />
+    <Content Include="semantic\packaged\images\loader-large-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-large.gif" />
+    <Content Include="semantic\packaged\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-medium.gif" />
+    <Content Include="semantic\packaged\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-mini.gif" />
+    <Content Include="semantic\packaged\images\loader-small-inverted.gif" />
+    <Content Include="semantic\packaged\images\loader-small.gif" />
+    <Content Include="semantic\packaged\javascript\semantic.min.js" />
+    <Content Include="semantic\uncompressed\collections\breadcrumb.css" />
+    <Content Include="semantic\uncompressed\collections\form.css" />
+    <Content Include="semantic\uncompressed\collections\grid.css" />
+    <Content Include="semantic\uncompressed\collections\menu.css" />
+    <Content Include="semantic\uncompressed\collections\message.css" />
+    <Content Include="semantic\uncompressed\collections\table.css" />
+    <Content Include="semantic\uncompressed\elements\button.css" />
+    <Content Include="semantic\uncompressed\elements\divider.css" />
+    <Content Include="semantic\uncompressed\elements\header.css" />
+    <Content Include="semantic\uncompressed\elements\icon.css" />
+    <Content Include="semantic\uncompressed\elements\image.css" />
+    <Content Include="semantic\uncompressed\elements\input.css" />
+    <Content Include="semantic\uncompressed\elements\label.css" />
+    <Content Include="semantic\uncompressed\elements\loader.css" />
+    <Content Include="semantic\uncompressed\elements\progress.css" />
+    <Content Include="semantic\uncompressed\elements\segment.css" />
+    <Content Include="semantic\uncompressed\elements\step.css" />
+    <Content Include="semantic\uncompressed\fonts\icons.svg" />
+    <Content Include="semantic\uncompressed\images\loader-large-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-large.gif" />
+    <Content Include="semantic\uncompressed\images\loader-medium-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-medium.gif" />
+    <Content Include="semantic\uncompressed\images\loader-mini-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-mini.gif" />
+    <Content Include="semantic\uncompressed\images\loader-small-inverted.gif" />
+    <Content Include="semantic\uncompressed\images\loader-small.gif" />
+    <Content Include="semantic\uncompressed\modules\accordion.css" />
+    <Content Include="semantic\uncompressed\modules\accordion.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\api.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\colorize.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\form.js" />
+    <Content Include="semantic\uncompressed\modules\behavior\state.js" />
+    <Content Include="semantic\uncompressed\modules\carousel.css" />
+    <Content Include="semantic\uncompressed\modules\carousel.js" />
+    <Content Include="semantic\uncompressed\modules\chatroom.css" />
+    <Content Include="semantic\uncompressed\modules\chatroom.js" />
+    <Content Include="semantic\uncompressed\modules\checkbox.css" />
+    <Content Include="semantic\uncompressed\modules\checkbox.js" />
+    <Content Include="semantic\uncompressed\modules\dimmer.css" />
+    <Content Include="semantic\uncompressed\modules\dimmer.js" />
+    <Content Include="semantic\uncompressed\modules\dropdown.css" />
+    <Content Include="semantic\uncompressed\modules\dropdown.js" />
+    <Content Include="semantic\uncompressed\modules\extra.css" />
+    <Content Include="semantic\uncompressed\modules\modal.css" />
+    <Content Include="semantic\uncompressed\modules\modal.js" />
+    <Content Include="semantic\uncompressed\modules\nag.css" />
+    <Content Include="semantic\uncompressed\modules\nag.js" />
+    <Content Include="semantic\uncompressed\modules\popup.css" />
+    <Content Include="semantic\uncompressed\modules\popup.js" />
+    <Content Include="semantic\uncompressed\modules\rating.css" />
+    <Content Include="semantic\uncompressed\modules\rating.js" />
+    <Content Include="semantic\uncompressed\modules\reveal.css" />
+    <Content Include="semantic\uncompressed\modules\search.css" />
+    <Content Include="semantic\uncompressed\modules\search.js" />
+    <Content Include="semantic\uncompressed\modules\shape.css" />
+    <Content Include="semantic\uncompressed\modules\shape.js" />
+    <Content Include="semantic\uncompressed\modules\sidebar.css" />
+    <Content Include="semantic\uncompressed\modules\sidebar.js" />
+    <Content Include="semantic\uncompressed\modules\tab.css" />
+    <Content Include="semantic\uncompressed\modules\tab.js" />
+    <Content Include="semantic\uncompressed\modules\transition.css" />
+    <Content Include="semantic\uncompressed\modules\transition.js" />
+    <Content Include="semantic\uncompressed\modules\video.css" />
+    <Content Include="semantic\uncompressed\modules\video.js" />
+    <Content Include="semantic\uncompressed\views\comment.css" />
+    <Content Include="semantic\uncompressed\views\feed.css" />
+    <Content Include="semantic\uncompressed\views\item.css" />
+    <Content Include="semantic\uncompressed\views\list.css" />
+    <Content Include="semantic\uncompressed\views\sitemap.css" />
+    <Content Include="semantic\uncompressed\views\statistic.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="semantic\uncompressed\fonts\icons.woff" />
+    <Content Include="semantic\uncompressed\fonts\icons.ttf" />
+    <Content Include="semantic\uncompressed\fonts\icons.eot" />
+    <Content Include="semantic\packaged\fonts\icons.woff" />
+    <Content Include="semantic\packaged\fonts\icons.ttf" />
+    <Content Include="semantic\packaged\fonts\icons.eot" />
+    <Content Include="semantic\minified\fonts\icons.woff" />
+    <Content Include="semantic\minified\fonts\icons.ttf" />
+    <Content Include="semantic\minified\fonts\icons.eot" />
+    <Content Include="semantic\less\views\statistic.less" />
+    <Content Include="semantic\less\views\sitemap.less" />
+    <Content Include="semantic\less\views\list.less" />
+    <Content Include="semantic\less\views\item.less" />
+    <Content Include="semantic\less\views\feed.less" />
+    <Content Include="semantic\less\views\comment.less" />
+    <Content Include="semantic\less\modules\video.less" />
+    <Content Include="semantic\less\modules\transition.less" />
+    <Content Include="semantic\less\modules\tab.less" />
+    <Content Include="semantic\less\modules\sidebar.less" />
+    <Content Include="semantic\less\modules\shape.less" />
+    <Content Include="semantic\less\modules\search.less" />
+    <Content Include="semantic\less\modules\reveal.less" />
+    <Content Include="semantic\less\modules\rating.less" />
+    <Content Include="semantic\less\modules\popup.less" />
+    <Content Include="semantic\less\modules\nag.less" />
+    <Content Include="semantic\less\modules\modal.less" />
+    <Content Include="semantic\less\modules\extra.transition.less" />
+    <Content Include="semantic\less\modules\dropdown.less" />
+    <Content Include="semantic\less\modules\dimmer.less" />
+    <Content Include="semantic\less\modules\checkbox.less" />
+    <Content Include="semantic\less\modules\chatroom.less" />
+    <Content Include="semantic\less\modules\carousel.less" />
+    <Content Include="semantic\less\modules\accordion.less" />
+    <Content Include="semantic\less\fonts\icons.woff" />
+    <Content Include="semantic\less\fonts\icons.ttf" />
+    <Content Include="semantic\less\fonts\icons.eot" />
+    <Content Include="semantic\less\elements\step.less" />
+    <Content Include="semantic\less\elements\segment.less" />
+    <Content Include="semantic\less\elements\progress.less" />
+    <Content Include="semantic\less\elements\loader.less" />
+    <Content Include="semantic\less\elements\label.less" />
+    <Content Include="semantic\less\elements\input.less" />
+    <Content Include="semantic\less\elements\image.less" />
+    <Content Include="semantic\less\elements\icon.less" />
+    <Content Include="semantic\less\elements\header.less" />
+    <Content Include="semantic\less\elements\divider.less" />
+    <Content Include="semantic\less\elements\button.less" />
+    <Content Include="semantic\less\collections\table.less" />
+    <Content Include="semantic\less\collections\message.less" />
+    <Content Include="semantic\less\collections\menu.less" />
+    <Content Include="semantic\less\collections\grid.less" />
+    <Content Include="semantic\less\collections\form.less" />
+    <Content Include="semantic\less\collections\breadcrumb.less" />
+    <Content Include="Views\Shared\_LayoutPageAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageAdmin1.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageNew.cshtml" />
+    <Content Include="Views\Shared\_TestLayoutPageAdmin.cshtml" />
+    <Content Include="Views\MonAn\Index.cshtml" />
+    <Content Include="Views\MonAn\ViewAll.cshtml" />
+    <Content Include="Views\MonAn\AddOrEdit.cshtml" />
+    <Content Include="Views\LoginAdmin\Login.cshtml" />
+    <Content Include="Views\TrangChu\TrangChu.cshtml" />
+    <Content Include="Views\ThucDons\ChonMonAn.cshtml" />
+    <Content Include="Views\ThucDons\TEST2.cshtml" />
+    <Content Include="Views\ThucDons\Create.cshtml" />
+    <Content Include="Views\TaiKhoan\Index.cshtml" />
+    <Content Include="Views\TaiKhoan\DanhSachNhanVien.cshtml" />
+    <Content Include="Views\TaiKhoan\Edit.cshtml" />
+    <Content Include="Views\TaiKhoan\Delete.cshtml" />
+    <Content Include="Views\ThongKe\Index.cshtml" />
+    <Content Include="Views\ThongKe\Edit.cshtml" />
+    <Content Include="Views\TaiKhoan\Create.cshtml" />
+    <Content Include="Views\NguyenLieu\Index.cshtml" />
+    <Content Include="Views\NguyenLieu\TEST2.cshtml" />
+    <Content Include="Views\UserLogin\Login.cshtml" />
+    <Content Include="Views\UserChonMon\ChonMon.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="assets\" />
+    <Folder Include="Content\popper\" />
+    <Folder Include="Content\Script\" />
+    <Folder Include="Views\ThongKeNguyenLieu\" />
+    <Folder Include="Views\ThongKePhiAn\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6537</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6537/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

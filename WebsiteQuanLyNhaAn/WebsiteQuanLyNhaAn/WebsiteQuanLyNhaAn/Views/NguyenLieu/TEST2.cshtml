@@ -1,0 +1,361 @@
+﻿@model IEnumerable<WebsiteQuanLyNhaAn.Models.ThanhToanNguyenLieu>
+
+@{
+    ViewBag.Title = "Thống Kê Nguyên Liệu";
+    Layout = "~/Views/Shared/_TestLayoutPageAdmin.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<style>
+    .circle-tile {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .circle-tile-heading {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 100%;
+        color: #FFFFFF;
+        height: 80px;
+        margin: 0 auto -40px;
+        position: relative;
+        transition: all 0.3s ease-in-out 0s;
+        width: 80px;
+    }
+
+        .circle-tile-heading .fa {
+            line-height: 80px;
+        }
+
+    .circle-tile-content {
+        padding-top: 50px;
+    }
+
+    .circle-tile-number {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1;
+        padding: 5px 0 15px;
+    }
+
+    .circle-tile-description {
+        text-transform: uppercase;
+    }
+
+    .circle-tile-footer {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: rgba(255, 255, 255, 0.5);
+        display: block;
+        padding: 5px;
+        transition: all 0.3s ease-in-out 0s;
+    }
+
+        .circle-tile-footer:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+    .circle-tile-heading.dark-blue:hover {
+        background-color: #2E4154;
+    }
+
+    .circle-tile-heading.green:hover {
+        background-color: #138F77;
+    }
+
+    .circle-tile-heading.orange:hover {
+        background-color: #DA8C10;
+    }
+
+    .circle-tile-heading.blue:hover {
+        background-color: #2473A6;
+    }
+
+    .circle-tile-heading.red:hover {
+        background-color: #CF4435;
+    }
+
+    .circle-tile-heading.purple:hover {
+        background-color: #7F3D9B;
+    }
+
+    .tile-img {
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+    }
+
+    .count-food {
+        background-color: #3faba4;
+    }
+
+    .dark-blue {
+        background-color: #34495E;
+    }
+
+    .blue-sea {
+        background-color: #4c87b9;
+    }
+
+    .green {
+        background-color: #16A085;
+    }
+
+    .blue {
+        background-color: #2980B9;
+    }
+
+    .orange {
+        background-color: #F39C12;
+    }
+
+    .red {
+        background-color: #E74C3C;
+    }
+
+    .purple {
+        background-color: #8E44AD;
+    }
+
+    .dark-gray {
+        background-color: #7F8C8D;
+    }
+
+    .gray {
+        background-color: #95A5A6;
+    }
+
+    .light-gray {
+        background-color: #BDC3C7;
+    }
+
+    .yellow {
+        background-color: #F1C40F;
+    }
+
+    .text-dark-blue {
+        color: #34495E;
+    }
+
+    .text-green {
+        color: #16A085;
+    }
+
+    .text-blue {
+        color: #2980B9;
+    }
+
+    .text-orange {
+        color: #F39C12;
+    }
+
+    .text-red {
+        color: #E74C3C;
+    }
+
+    .text-purple {
+        color: #8E44AD;
+    }
+
+    .text-faded {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .morecontent span {
+        display: none;
+    }
+
+    .morelink {
+        display: block;
+    }
+
+    hr.style17 {
+        border-top: 1px solid #8c8b8b;
+        text-align: center;
+    }
+
+        hr.style17:after {
+            content: '§';
+            display: inline-block;
+            position: relative;
+            top: -14px;
+            padding: 0 10px;
+            background: #f0f0f0;
+            color: #8c8b8b;
+            font-size: 18px;
+            -webkit-transform: rotate(60deg);
+            -moz-transform: rotate(60deg);
+            transform: rotate(60deg);
+        }
+</style>
+
+<br />
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+                <div class="circle-tile-content red">
+                    <div class="circle-tile-description text-faded"> Tài Khoản Đã Đăng Kí </div>
+                    <div class="circle-tile-number text-faded ">@ViewBag.Count</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#">
+                    <div class="circle-tile-heading dark-blue">
+                        <i class="fa  fa-money
+ fa-fw fa-3x"></i>
+                    </div>
+                </a>
+                <div class="circle-tile-content dark-blue">
+                    <div class="circle-tile-description text-faded">Tổng Số Tiền</div>
+                    <div class="circle-tile-number text-faded ">@ViewBag.Total VNĐ</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#">
+                    <div class="circle-tile-heading blue-sea">
+                        <i class="fa   fa-comments-o fa-fw fa-3x"></i>
+                    </div>
+                </a>
+                <div class="circle-tile-content blue-sea">
+                    <div class="circle-tile-description text-faded">Phản Hồi Mới</div>
+                    <div class="circle-tile-number text-faded ">24</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="circle-tile ">
+                <a href="#">
+                    <div class="circle-tile-heading count-food">
+                        <i class="fa fa-cutlery fa-fw fa-3x"></i>
+                    </div>
+                </a>
+                <div class="circle-tile-content count-food">
+                    <div class="circle-tile-description text-faded">Tổng Số Món Ăn</div>
+                    <div class="circle-tile-number text-faded ">@ViewBag.Food</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br />
+<br />
+<table id="employeeTable" class="display table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaHoaDonNguyenLieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaTien)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.ThuTrongTuan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayThanhToan)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHoaDonNguyenLieu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaTien) VNĐ
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThuTrongTuan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayThanhToan)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+
+
+<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+@section scripts{
+
+    <script src="~/Content/datatable.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.flash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#employeeTable").DataTable({
+                "dom": "Bfrtip",
+                "buttons": [
+                    {
+                        extend: 'copy',
+                        className: 'copyButton',
+                        text:'<i class="fa fa-clone"></i> Sao Chép'
+                    },
+                    {
+                        extend: 'excel',
+                        text: '<i class="fa fa-file-excel-o"></i> Tải xuống file Excel'
+                    },
+                    {
+                        extend: 'pdf',
+                        text: '<i class="fa fa-file-pdf-o"></i> Tải xuống file Pdf'
+                    },
+                    {
+                        extend: 'print',
+                        text: '<i class="fa fa-print"></i> In dữ liệu',
+                        customize: function (win) {
+                            $(win.document.body)
+                                .css('font-size', '10pt')
+                                
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    },
+                ]
+
+            });
+        });
+        function activatejQueryTable() {
+            $("#employeeTable").DataTable();
+        }
+
+        $(function () {
+            activatejQueryTable();
+
+        });
+    </script>
+
+}

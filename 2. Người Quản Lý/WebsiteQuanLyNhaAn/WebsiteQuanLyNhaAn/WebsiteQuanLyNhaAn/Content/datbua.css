@@ -1,0 +1,170 @@
+﻿.menu-theo-tuan{
+    height:auto;
+    margin:0px auto;
+    float:left;
+}
+.dsmonan{
+    height:auto;
+    float:left;
+}
+.content ul.tab {
+    list-style: none; 
+    margin: 20px 0 25px; 
+    padding:0; 
+    overflow: hidden;}
+.content ul.tab li {
+    display: block; 
+    float: left; 
+    width: 33.33%; 
+    text-align: center;
+    margin-left: 0px; 
+    margin-bottom: 0px;
+    padding: 3px 0 3px 0px;
+
+}
+.content ul.tab li a {
+    display: block; 
+    padding: 6px 0; 
+    font-size: 18px; 
+    font-weight: 200; 
+    color: #333;
+    border-bottom: 1px solid #ebebeb; }
+.content ul.tab li.active a {
+    text-decoration: none; 
+    border-style: solid; 
+    border-width: 1px 1px 0 1px; 
+    border-color: #ebebeb; 
+    color: #b11116; 
+    font-weight: 700;
+}
+.content ul.tab{
+    height:auto;
+}
+.dsmonan .ThuNgay{
+	list-style: none; 
+	padding-left: 10px;
+    width:250px;
+    top:15px;
+ 
+}
+.ngay-len-mon{
+    float:right;
+}
+.dsmonan .ThuNgay li{
+	margin-bottom: 5px;
+    color:#48b1bf;
+    box-shadow: 5px 5px 5px;
+    -moz-box-shadow: 5px 5px 5px;
+    -webkit-box-shadow: 5px 5px 5px;
+    -o-box-shadow: 5px 5px 5px;
+    -ms-box-shadow: 5px 5px 5px;
+}
+.dsmonan .ThuNgay li a {
+	display: block; 
+    padding: 5px 10px; 
+	color: #333; 
+	position: relative;
+   font-family: 'Roboto', sans-serif;
+}
+
+.dsmonan .ThuNgay li a:hover {
+	color: white;
+    background: #0082c8;
+}
+.cart main_cart{
+    border:1px solid gray;
+    border-radius:5px;
+}#hinhanh{
+	width: 80px; 
+    height:80px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    float:left;
+}
+.GiaVaLoai{
+    text-align:left;
+}
+.menu-mon h4{
+    /*font-style:oblique;*/
+    font-family: 'Noto Serif', serif;
+    background-color:#0082c8;
+    color:white;
+    padding-left:30px;
+    border-radius:0px 30px 0px 15px;
+}
+.buggg{
+    list-style:none
+}
+.GiaVaLoai .tenmonan{
+    font-family: 'Lobster', cursive;
+}
+.GiaVaLoai .dongia{
+    padding-left:2px ;
+}
+.GiaVaLoai .loaimon {
+    padding-left:2px ;
+}
+.dsMon{
+    padding-left:50px;
+    margin:10px 0px 10px 0px;
+    border-top:1px solid gray;
+    padding-bottom:20px;
+    padding-top:20px;
+    
+}
+.dsMon .GiaVaLoai{
+    padding-left:200px;
+}
+.tenmonan{
+    font-size:20px;
+}
+/*.fixed{
+    height:auto;
+    position:fixed;
+    z-index:10000;
+    padding-top:80px;
+
+}*/
+.col-md-12 h4{  
+    font-family: 'Noto Serif', serif;
+}
+/*.subtract-mon{
+    padding-left:100px;
+}*/
+.BangTam{
+    border:1px solid gray;
+}
+.gio-hang{
+    width:263px;
+    float:left;
+    border:1px solid #200122;
+    border-radius:5px;
+}
+.gio-hang h4 {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    background: #870000;
+    color: #fff;
+    text-align:center;
+}
+.thanh-toan{
+    border-top:1px solid gray;
+}
+
+.btnDatBua{
+    background-color:#870000;
+    border-radius:2px;
+    color:#fff;
+}
+#tong-tien{
+    float:left;
+}
+#so-tien{
+    float:right;
+}
+.clr{
+    clear:both;
+    height:15px;
+}

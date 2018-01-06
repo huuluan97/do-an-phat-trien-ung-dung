@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyNhaAn_DoAnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BuaAn">
+    <Key>
+      <PropertyRef Name="MaBuaAn" />
+    </Key>
+    <Property Name="MaBuaAn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="NgayAn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TaiKhoan" Relationship="Self.FK_BuaAn_MaNV" FromRole="BuaAn" ToRole="TaiKhoan" />
+    <NavigationProperty Name="ChiTietBuaAns" Relationship="Self.FK_ChiTietBuaAn_MaBuaAn" FromRole="BuaAn" ToRole="ChiTietBuaAn" />
+  </EntityType>
+  <EntityType Name="ChiTietBuaAn">
+    <Key>
+      <PropertyRef Name="MaBuaAn" />
+      <PropertyRef Name="MaMonAn" />
+    </Key>
+    <Property Name="MaBuaAn" Type="Int32" Nullable="false" />
+    <Property Name="MaMonAn" Type="Int32" Nullable="false" />
+    <Property Name="NgayAn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="BuaAn" Relationship="Self.FK_ChiTietBuaAn_MaBuaAn" FromRole="ChiTietBuaAn" ToRole="BuaAn" />
+    <NavigationProperty Name="ThucDon" Relationship="Self.FK_ChiTietBuaAn_ThucDon_NgayAn_MaMonAn" FromRole="ChiTietBuaAn" ToRole="ThucDon" />
+  </EntityType>
+  <EntityType Name="ChiTietNguyenLieu">
+    <Key>
+      <PropertyRef Name="MaNguyenLieu" />
+      <PropertyRef Name="MaMonAn" />
+    </Key>
+    <Property Name="MaNguyenLieu" Type="Int32" Nullable="false" />
+    <Property Name="MaMonAn" Type="Int32" Nullable="false" />
+    <Property Name="DonGiaNL" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MonAn" Relationship="Self.FK_ChiTietNguyenLieu_MonAn_MaMonAn" FromRole="ChiTietNguyenLieu" ToRole="MonAn" />
+    <NavigationProperty Name="NguyenLieu" Relationship="Self.FK_ChiTietNguyenLieu_NguyenLieu_MaNguyenLieu" FromRole="ChiTietNguyenLieu" ToRole="NguyenLieu" />
+  </EntityType>
+  <EntityType Name="MonAn">
+    <Key>
+      <PropertyRef Name="MaMonAn" />
+    </Key>
+    <Property Name="MaMonAn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenMonAn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoaiMonAn" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Images" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietNguyenLieux" Relationship="Self.FK_ChiTietNguyenLieu_MonAn_MaMonAn" FromRole="MonAn" ToRole="ChiTietNguyenLieu" />
+    <NavigationProperty Name="ThucDons" Relationship="Self.FK_ThucDon_MonAn_MaMonAn" FromRole="MonAn" ToRole="ThucDon" />
+  </EntityType>
+  <EntityType Name="NguyenLieu">
+    <Key>
+      <PropertyRef Name="MaNguyenLieu" />
+    </Key>
+    <Property Name="MaNguyenLieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNguyenLieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGiaNL" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="ChiTietNguyenLieux" Relationship="Self.FK_ChiTietNguyenLieu_NguyenLieu_MaNguyenLieu" FromRole="NguyenLieu" ToRole="ChiTietNguyenLieu" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChucVu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CapChucVu" Type="Int32" />
+    <Property Name="TinhTrangTaiKhoan" Type="Int32" />
+    <NavigationProperty Name="TaiKhoan" Relationship="Self.FK_TaiKhoan_MaNV" FromRole="NhanVien" ToRole="TaiKhoan" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="BuaAns" Relationship="Self.FK_BuaAn_MaNV" FromRole="TaiKhoan" ToRole="BuaAn" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_TaiKhoan_MaNV" FromRole="TaiKhoan" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="ThanhToan">
+    <Key>
+      <PropertyRef Name="maNV" />
+    </Key>
+    <Property Name="maNV" Type="Int32" Nullable="false" />
+    <Property Name="tenNV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="gia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="thangan" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThanhToanNguyenLieu">
+    <Key>
+      <PropertyRef Name="MaHoaDonNguyenLieu" />
+    </Key>
+    <Property Name="MaHoaDonNguyenLieu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GiaTien" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+    <Property Name="ThuTrongTuan" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThucDon">
+    <Key>
+      <PropertyRef Name="MaMonAn" />
+      <PropertyRef Name="NgayLenThucDon" />
+    </Key>
+    <Property Name="MaMonAn" Type="Int32" Nullable="false" />
+    <Property Name="NgayLenThucDon" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="ChiTietBuaAns" Relationship="Self.FK_ChiTietBuaAn_ThucDon_NgayAn_MaMonAn" FromRole="ThucDon" ToRole="ChiTietBuaAn" />
+    <NavigationProperty Name="MonAn" Relationship="Self.FK_ThucDon_MonAn_MaMonAn" FromRole="ThucDon" ToRole="MonAn" />
+  </EntityType>
+  <Association Name="FK_BuaAn_MaNV">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
+    <End Role="BuaAn" Type="Self.BuaAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="BuaAn">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietBuaAn_MaBuaAn">
+    <End Role="BuaAn" Type="Self.BuaAn" Multiplicity="1" />
+    <End Role="ChiTietBuaAn" Type="Self.ChiTietBuaAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BuaAn">
+        <PropertyRef Name="MaBuaAn" />
+      </Principal>
+      <Dependent Role="ChiTietBuaAn">
+        <PropertyRef Name="MaBuaAn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietBuaAn_ThucDon_NgayAn_MaMonAn">
+    <End Role="ThucDon" Type="Self.ThucDon" Multiplicity="1" />
+    <End Role="ChiTietBuaAn" Type="Self.ChiTietBuaAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThucDon">
+        <PropertyRef Name="MaMonAn" />
+        <PropertyRef Name="NgayLenThucDon" />
+      </Principal>
+      <Dependent Role="ChiTietBuaAn">
+        <PropertyRef Name="MaMonAn" />
+        <PropertyRef Name="NgayAn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietNguyenLieu_MonAn_MaMonAn">
+    <End Role="MonAn" Type="Self.MonAn" Multiplicity="1" />
+    <End Role="ChiTietNguyenLieu" Type="Self.ChiTietNguyenLieu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonAn">
+        <PropertyRef Name="MaMonAn" />
+      </Principal>
+      <Dependent Role="ChiTietNguyenLieu">
+        <PropertyRef Name="MaMonAn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietNguyenLieu_NguyenLieu_MaNguyenLieu">
+    <End Role="NguyenLieu" Type="Self.NguyenLieu" Multiplicity="1" />
+    <End Role="ChiTietNguyenLieu" Type="Self.ChiTietNguyenLieu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NguyenLieu">
+        <PropertyRef Name="MaNguyenLieu" />
+      </Principal>
+      <Dependent Role="ChiTietNguyenLieu">
+        <PropertyRef Name="MaNguyenLieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThucDon_MonAn_MaMonAn">
+    <End Role="MonAn" Type="Self.MonAn" Multiplicity="1" />
+    <End Role="ThucDon" Type="Self.ThucDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonAn">
+        <PropertyRef Name="MaMonAn" />
+      </Principal>
+      <Dependent Role="ThucDon">
+        <PropertyRef Name="MaMonAn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoan_MaNV">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyNhaAnEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BuaAns" EntityType="Self.BuaAn" />
+    <EntitySet Name="ChiTietBuaAns" EntityType="Self.ChiTietBuaAn" />
+    <EntitySet Name="ChiTietNguyenLieux" EntityType="Self.ChiTietNguyenLieu" />
+    <EntitySet Name="MonAns" EntityType="Self.MonAn" />
+    <EntitySet Name="NguyenLieux" EntityType="Self.NguyenLieu" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+    <EntitySet Name="ThanhToans" EntityType="Self.ThanhToan" />
+    <EntitySet Name="ThanhToanNguyenLieux" EntityType="Self.ThanhToanNguyenLieu" />
+    <EntitySet Name="ThucDons" EntityType="Self.ThucDon" />
+    <AssociationSet Name="FK_BuaAn_MaNV" Association="Self.FK_BuaAn_MaNV">
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+      <End Role="BuaAn" EntitySet="BuaAns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietBuaAn_MaBuaAn" Association="Self.FK_ChiTietBuaAn_MaBuaAn">
+      <End Role="BuaAn" EntitySet="BuaAns" />
+      <End Role="ChiTietBuaAn" EntitySet="ChiTietBuaAns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietBuaAn_ThucDon_NgayAn_MaMonAn" Association="Self.FK_ChiTietBuaAn_ThucDon_NgayAn_MaMonAn">
+      <End Role="ThucDon" EntitySet="ThucDons" />
+      <End Role="ChiTietBuaAn" EntitySet="ChiTietBuaAns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietNguyenLieu_MonAn_MaMonAn" Association="Self.FK_ChiTietNguyenLieu_MonAn_MaMonAn">
+      <End Role="MonAn" EntitySet="MonAns" />
+      <End Role="ChiTietNguyenLieu" EntitySet="ChiTietNguyenLieux" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietNguyenLieu_NguyenLieu_MaNguyenLieu" Association="Self.FK_ChiTietNguyenLieu_NguyenLieu_MaNguyenLieu">
+      <End Role="NguyenLieu" EntitySet="NguyenLieux" />
+      <End Role="ChiTietNguyenLieu" EntitySet="ChiTietNguyenLieux" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThucDon_MonAn_MaMonAn" Association="Self.FK_ThucDon_MonAn_MaMonAn">
+      <End Role="MonAn" EntitySet="MonAns" />
+      <End Role="ThucDon" EntitySet="ThucDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoan_MaNV" Association="Self.FK_TaiKhoan_MaNV">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

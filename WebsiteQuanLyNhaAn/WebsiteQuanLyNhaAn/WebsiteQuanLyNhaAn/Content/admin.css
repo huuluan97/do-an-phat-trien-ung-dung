@@ -1,0 +1,100 @@
+﻿#content{
+    width:100%;
+}
+.thanh-menu{  
+    transition: all 0.5s  ease-in-out;
+    padding:1em;
+    background-color:#434343;
+    border-right:1px solid black;
+    height:auto;
+    width: 200px;
+    position: absolute;
+
+}
+.thanh-menu ul{
+    list-style-type:none;
+    margin:0px; 
+    padding-left:0px;
+}
+.thanh-menu ul li{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.thanh-menu li a,.thanh-menu li a.collapsed.active{
+    color:white;
+    text-decoration:none;
+}
+.thanh-menu ul li .menu-phu li{
+    padding-left:10px;
+    color:white;
+}
+.thanh-menu ul li .menu-phu li a:hover{
+    color:black;
+}
+.thanh-menu ul li .menu-phu li:hover{ 
+    transition: all 0.5s  ease-in-out;
+    -moz-transition: all 0.5s  ease-in-out;
+    -webkit-transition: all 0.5s  ease-in-out;
+    -o-transition: all 0.5s  ease-in-out;
+    padding-left:20px;
+    background-color:white;
+    color:black;
+}
+.thanh-menu li a.collapsed.active:hover{
+    transition: all 0.5s  ease-in-out;
+        -moz-transition: all 0.5s  ease-in-out;
+    -webkit-transition: all 0.5s  ease-in-out;
+    -o-transition: all 0.5s  ease-in-out;
+    opacity:1.5;
+}
+#thong-tin{
+    position: absolute;
+}
+ #thong-tin .tab-content h3{
+     padding-left:10px;
+ }
+#content{
+
+}
+#btnMenu{
+    float:right;
+}
+.gop-menu li a .nav-label,.gop-menu li a .nav-label+span{ 
+    display:none;
+    transition: all 0.5s  ease-in-out;
+    -moz-transition: all 0.5s  ease-in-out;
+    -webkit-transition: all 0.5s  ease-in-out;
+    -o-transition: all 0.5s  ease-in-out;
+
+}
+.gop-menu {
+    width: 42px;
+    transition: none 2s  linear;
+    -moz-transition: all 0.5s  linear;
+    -webkit-transition: all 0.5s  linear;
+    -o-transition: all 0.5s  linear;
+    padding-left:4px;
+}
+.gop-menu li{ 
+    position:relative;
+    padding-left:4px;
+}
+.gop-menu .menu-phu {
+    position: absolute;
+    left: 39px;
+    top: 0;
+    background-color: #222;
+    width: 150px;
+    z-index: 100;
+}
+.gop-menu .button-menu{
+    padding-left:4px;
+}
+#thong-tin.active{
+    left:-150px;
+    transition:all 3s ease 10s;
+    -moz-transition: all 3s ease 10s;
+    -webkit-transition: all 3s ease 10s;
+    -o-transition: all 3s ease 10s;
+
+}
